@@ -12,6 +12,7 @@ A RAG (Retrieval-Augmented Generation) based chatbot that answers questions abou
 -  (LLaMA 3.1)** — LLM for generating answers(any llama model for localy run on system)
 - **FastAPI** — Backend API server
 - **HTML/CSS/JS** — Static frontend
+- ****Docker** - Running Qdrant
 
 ---
 
@@ -70,11 +71,22 @@ Open `index.html` in your browser — done! 🎉
 
 ## 💡 How It Works
 
-1. Constitution PDFs are split into chunks and stored in Qdrant
-2. User asks a question via the frontend
-3. Relevant chunks are retrieved using semantic search
-4.  LLaMA 3.1 generates an answer using only those chunks
-5. Answer is displayed in the chat UI
+Constitution PDF
+       ↓
+Split into chunks
+       ↓
+Create embeddings
+       ↓
+Store in Qdrant
+       ↓
+User asks a question
+       ↓
+Search for relevant chunks
+       ↓
+Send retrieved context to LLM
+       ↓
+Generate the answer
+
 
 ---
 
